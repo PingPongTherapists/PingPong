@@ -1,0 +1,36 @@
+#pagination {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pageNumbers button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#pageNumbers button.active {
+    background-color: #e53e3e;
+    color: white;
+}
+
+/* Hide menu toggle button on larger screens */
+#menuToggle {
+  display: none;
+}
+
+/* Hide navigation links on smaller screens */
+@media screen and (max-width: 768px) {
+  #navLinks {
+    display: none;
+  }
+
+  #menuToggle {
+    display: block;
+  }
+}

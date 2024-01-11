@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乒乓宮</title>
+  <link rel="icon" type="image/x-icon" href="./assets/Logo.ico">
+  <script src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+  <link rel="stylesheet" href="./assets/style.css">
+  <style>
+    @media (max-width: 640px) {
+      .form-input, .form-textarea, .form-button {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="page-2">
+  <div class="bg-red-600 py-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="https://www.instagram.com/pingpongtherapists/" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">首頁</a>
+      <button id="menu-toggle" aria-label="Menu" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300 md:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="hidden md:flex">
+        <a href="./Guan.html" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">關聖帝君</a>
+        <a href="./Ganesha.html" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">象財神</a>
+        <a href="./Yuelao.html" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">月下老人</a>
+        <a href="https://p.ecpay.com.tw/5EC4E97" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">隨喜功德箱</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:hidden bg-red-600 py-4 hidden" id="mobile-menu">
+    <div class="container mx-auto flex flex-col">
+      <a href="./Guan.html" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">關聖帝君</a>
+      <a href="./Ganesha.html" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">象財神</a>
+      <a href="./Yuelao.html" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">月下老人</a>
+      <a href="https://p.ecpay.com.tw/5EC4E97" class="text-white px-4 py-2 hover:bg-red-700 transition duration-300">隨喜功德箱</a>
+    </div>
+  </div>
+
+  <div class="container mx-auto mt-8 px-4">
+    <div class="flex justify-center my-4">
+      <img alt="Yuelau" class="w-64 h-64" height="256" src="./assets/Ganesha.webp" width="256"/>
+    </div>
+
+    <h2 class="text-center text-4xl mb-8">象財神光明燈</h2>
+    <h6>點燈人次:</h6><a id="totalRows"></a><h2 class="text-2xl font-bold mb-4">點燈專區</h2>
+    <form class="user-input-form bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">姓名:</label>
+        <input type="text" id="name" name="name" placeholder="哭西" required class="form-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+
+      <div class="mb-4">
+        <label for="birthday" class="block text-gray-700 text-sm font-bold mb-2">生日:</label>
+        <input type="date" id="birthday" name="birthday" required class="form-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+        <input type="email" id="email" name="email" placeholder="pingpongtherapists@gmail.com" required class="form-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
+
+      <div class="mb-6">
+        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">留言:</label>
+        <textarea id="message" name="message" required class="form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+      </div>
+      
+      <div class="flex items-center justify-between">
+        <button type="submit" class="form-button bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">點燈</button>
+      </div>
+    </form>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-4">姓名搜尋</h2>
+      <form class="search-user-form bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label for="search-name" class="block text-gray-700 text-sm font-bold mb-2">姓名:</label>
+          <input type="text" id="search-name" name="name" placeholder="請輸入姓名" required class="form-input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex items-center justify-between">
+          <button type="submit" class="form-button bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">搜尋</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="usersList">
+      <h2 class="text-2xl font-bold mb-4">點燈名錄</h2>
+      <div id="pagination">
+          <div id="pageNumbers"></div>
+      </div>
+      <table class="min-w-full leading-normal">
+        <thead>
+          <tr>
+            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/6">光明燈</th>
+            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/6">姓名</th>
+            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/2">願望備註</th>
+            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/6">點燈時刻</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- User data will be inserted here by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="searchResults"></div>  
+  </div>
+
+  <footer class="bg-red-600 text-white">
+    <div class="container mx-auto py-4 px-5 text-center">
+      <p class="text-white text-sm">© 2024 乒乓召喚獸Dcard —
+        <a href="https://www.dcard.tw/my/persona?uid=ping_pong_2023" class="text-white ml-1" target="_blank" rel="noopener noreferrer">@pingpongtherapists</a>
+      </p>
+      <div class="mt-2">
+        <a class="text-white" href="https://www.tiktok.com/@pingpongtherapists">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a class="ml-3 text-white" href="https://www.youtube.com/@PingPongTherapists">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a class="ml-3 text-white" href="https://www.instagram.com/pingpongtherapists/">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  
+  <script src="bundle.js"></script>
+</body>
+</html>
