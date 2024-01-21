@@ -1,0 +1,39 @@
+{
+  "hosting": {
+    "public": "./dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/Guan.html",
+        "type": 301
+      }      
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/Guan.html"
+      },
+      {
+        "source": "/Guan",
+        "destination": "/Guan.html"
+      },
+      {
+        "source": "/Ganesha",
+        "destination": "/Ganesha.html"
+      },
+      {
+        "source": "/Yuelao",
+        "destination": "/Yuelao.html"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
